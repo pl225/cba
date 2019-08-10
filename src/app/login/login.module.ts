@@ -5,6 +5,7 @@ import { MatButtonModule, MatCheckboxModule, MatInputModule } from '@angular/mat
 
 import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     imports: [
@@ -13,6 +14,7 @@ import { LoginComponent } from './login.component';
         MatInputModule,
         MatCheckboxModule,
         MatButtonModule,
+        ReactiveFormsModule,
         FlexLayoutModule.withConfig({addFlexToParent: false})
     ],
     declarations: [LoginComponent]
