@@ -8,23 +8,13 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class LoginService {
 
-  user: Observable<firebase.User>;
-  private userDetails: firebase.User = null;
+    user: Observable<firebase.User>;
 
     constructor(
       private router: Router,
       public afAuth: AngularFireAuth
     ) {
         this.user = afAuth.authState;
-
-        this.user.subscribe((user) => {
-            if (user) {
-              this.userDetails = user;
-            } else {
-              this.userDetails = null;
-            }
-          }
-        );
     }
 
     public async login(mail: string, password: string) {
@@ -32,7 +22,6 @@ export class LoginService {
       try {
         const usuarioAutenticado: any = await this.afAuth.auth.signInWithEmailAndPassword(mail, password);
         // localStorage.setItem('token', usuarioAutenticado.Yd);
-        console.log('ahaha');
         this.router.navigate(['']);
       } catch (e) {
         console.log(e);
@@ -44,7 +33,8 @@ export class LoginService {
         return this.afAuth.auth.signOut();
     }
 
-    public isLoggedIn() {
-      return this.userDetails != null;
+    public async isLoggedIn() {
+      const u: any = await this.afAuth.user;
+      return u != null;
     }
 }
