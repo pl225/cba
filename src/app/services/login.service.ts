@@ -29,8 +29,10 @@ export class LoginService {
       }
     }
 
-    public logout() {
-        return this.afAuth.auth.signOut();
+    public async logout() {
+      return this.afAuth.auth.signOut().then(() => {
+        this.router.navigate(['']);
+      });
     }
 
     public async isLoggedIn() {
