@@ -4,7 +4,6 @@ import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule} from '@angular/material';
 import {MatTableModule, MatCardModule } from '@angular/material';
-import { MembrosModule } from './membros/membros.module';
 
 @NgModule({
   declarations: [HomeComponent],
@@ -17,8 +16,7 @@ import { MembrosModule } from './membros/membros.module';
     MatListModule,
     MatButtonModule,
     MatTableModule,
-    MatCardModule,
-    MembrosModule
+    MatCardModule
   ]
 })
 export class HomeModule { }

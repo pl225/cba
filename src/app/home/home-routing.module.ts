@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './home.component';
-import { MembrosComponent } from './membros/list/membros.component';
 
 const routes: Routes = [
     {
@@ -10,8 +9,13 @@ const routes: Routes = [
         component: HomeComponent,
         children: [
             {
+              path: '',
+              redirectTo: 'membros',
+              pathMatch: 'full'
+            },
+            {
                 path: 'membros',
-                component: MembrosComponent
+                loadChildren: './membros/membros.module#MembrosModule'
             }
         ]
     }

@@ -1,15 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MembrosComponent } from './list/membros.component';
-import { CadastroComponent } from './cadastro/cadastro.component';
-import { MatCardModule, MatTableModule } from '@angular/material';
+import { CadastroMembroComponent } from './cadastro/cadastro.component';
+import { MatCardModule, MatTableModule, MatIconModule, MatButtonModule } from '@angular/material';
+import { MembrosRoutingRoutingModule } from './membros-routing.module';
 
 @NgModule({
-  declarations: [MembrosComponent, CadastroComponent],
+  declarations: [MembrosComponent, CadastroMembroComponent],
   imports: [
     CommonModule,
     MatCardModule,
-    MatTableModule
+    MatTableModule,
+    MatButtonModule,
+    MatIconModule,
+    MembrosRoutingRoutingModule
   ]
 })
 export class MembrosModule { }
