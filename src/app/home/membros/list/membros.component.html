@@ -1,5 +1,14 @@
 <mat-card>
-    <h2>Membros</h2>
+
+    <div class="cabecalho">
+      <h2 class="titulo">Membros</h2>
+
+      <button mat-fab color="primary" routerLink="create">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+
+    <hr>
 
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
