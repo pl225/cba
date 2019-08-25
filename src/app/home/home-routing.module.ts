@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './home.component';
-import { MembrosComponent } from './membros/membros.component';
+import { MembrosComponent } from './membros/list/membros.component';
 
 const routes: Routes = [
     {

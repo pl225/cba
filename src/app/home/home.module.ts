@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
-import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule, 
-  MatTableModule, MatCardModule } from '@angular/material';
-import { MembrosComponent } from './membros/membros.component';
+import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule} from '@angular/material';
+import {MatTableModule, MatCardModule } from '@angular/material';
+import { MembrosModule } from './membros/membros.module';
 
 @NgModule({
-  declarations: [HomeComponent, MembrosComponent],
+  declarations: [HomeComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
@@ -17,7 +17,8 @@ import { MembrosComponent } from './membros/membros.component';
     MatListModule,
     MatButtonModule,
     MatTableModule,
-    MatCardModule
+    MatCardModule,
+    MembrosModule
   ]
 })
 export class HomeModule { }
