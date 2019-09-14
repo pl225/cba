@@ -1,1 +1,21 @@
-<p>cadastro works!</p>
+<mat-card>
+    <h2>Cadastrar membro</h2>
+
+    <mat-card>
+        <form [formGroup]="formMembro" (ngSubmit)="onSubmit()">
+
+            <div>
+                <mat-form-field>
+                    <input matInput placeholder="Nome" formControlName="nome" required>
+                    <mat-error *ngIf="formMembro.hasError('required')">
+                        Campo obrigatório.
+                    </mat-error>
+                </mat-form-field>
+
+                <input type="file" accept="/image*" formControlName="foto" (change)="handleFileInput($event)">
+            </div>
+            
+            <button type="submit" mat-raised-button color="primary" [disabled]="!formMembro.valid">Enviar</button>
+        </form>
+    </mat-card>
+</mat-card>

@@ -2,19 +2,27 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { User } from 'firebase';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-    user: Observable<firebase.User>;
+    user: User;
 
     constructor(
       private router: Router,
       public afAuth: AngularFireAuth
     ) {
-        this.user = afAuth.authState;
+      this.afAuth.authState.subscribe(user => {
+        if (user) {
+          this.user = user;
+          localStorage.setItem('user', JSON.stringify(this.user));
+        } else {
+          localStorage.setItem('user', null);
+        }
+      });
     }
 
     public async login(mail: string, password: string) {
@@ -30,13 +38,13 @@ export class LoginService {
     }
 
     public async logout() {
-      return this.afAuth.auth.signOut().then(() => {
-        this.router.navigate(['']);
-      });
+      await this.afAuth.auth.signOut();
+      localStorage.removeItem('user');
+      this.router.navigate(['login']);
     }
 
-    public async isLoggedIn() {
-      const u: any = await this.afAuth.user;
-      return u != null;
+    public isLoggedIn() {
+      const  user  =  JSON.parse(localStorage.getItem('user'));
+      return  user  !==  null;
     }
 }

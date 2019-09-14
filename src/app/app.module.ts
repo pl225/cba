@@ -11,6 +11,7 @@ import { environment } from '../environments/environment';
 
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 import { LoginService } from './services/login.service';
 import { MembroDataService } from './services/membro-data.service';
@@ -25,7 +26,8 @@ import { MembroDataService } from './services/membro-data.service';
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFireStorageModule
   ],
   providers: [LoginService, MembroDataService],
   bootstrap: [AppComponent]
